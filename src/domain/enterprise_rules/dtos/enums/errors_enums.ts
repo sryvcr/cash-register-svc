@@ -1,0 +1,22 @@
+export enum ErrorsEnum {
+
+    UNDEFINED = 1,
+    UNHANDLED = 100,
+    HTTP_REQUEST = 200,
+    DOMAIN_ENTITY_VALIDATION = 300,
+    STORAGE_EXCEPTION = 400
+
+}
+
+export enum HTTPCodesEnum {
+
+    SUCCESSFUL = 200,
+    CREATED = 201,
+    NOT_CONTENT = 204,
+    BAD_REQUEST = 400,
+    FORBIDDEN = 401,
+    UNAUTHORIZED = 403,
+    RESOURCE_NOT_FOUND = 404,
+    INTERNAL_SERVER_ERROR = 500
+
+}
