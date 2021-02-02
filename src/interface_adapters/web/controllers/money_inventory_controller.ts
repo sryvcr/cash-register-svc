@@ -24,10 +24,18 @@ export class MoneyTransacitonController extends ControllerBase {
 
     async deposit(req: any, res: any, next: any): Promise<void> {
         try {
-            console.log(req.body);
             const result = await moneyInventorySvc.depositMoney(req.body);
             res.status(HTTPCodesEnum.SUCCESSFUL);
             res.json(new ApiResponse(HTTPCodesEnum.SUCCESSFUL, result));
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async vacate(req: any, res: any, next: any): Promise<void> {
+        try {
+            await moneyInventorySvc.vacateMoney();
+            res.sendStatus(HTTPCodesEnum.NOT_CONTENT);
         } catch (error) {
             next(error);
         }

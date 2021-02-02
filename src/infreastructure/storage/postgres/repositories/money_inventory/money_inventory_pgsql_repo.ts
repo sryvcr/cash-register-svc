@@ -111,6 +111,22 @@ implements
         }
     }
 
+    async updateMany(searchCriteria: any, updateFileds: any, options?: any): Promise<boolean> {
+        try {
+            options = this.checkOptions(options);
+            await MoneyInventoryDal.update(
+                fromCamelToSnake(updateFileds),
+                {
+                    where: fromCamelToSnake(searchCriteria),
+                    transaction: options.transaction
+                },
+            );
+            return true;
+        } catch (error) {
+            throw new StorageError(error.message);
+        }
+    }
+
     async deleteOne(deleteCriter: any, options?: any): Promise<boolean> {
         try {
             options = this.checkOptions(options);

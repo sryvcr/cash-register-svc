@@ -8,6 +8,7 @@ interface IMoneyInventoryRepository<T> {
     getOneById(id: number, options?: any): Promise<T | null>;
     createOne(item: T, options?: any): Promise<T>;
     updateOne(id: number, item: T, options?: any): Promise<T | null>;
+    updateMany(updateCriteria: any, updateFields: any, options?: any): Promise<boolean>;
     deleteOne(deleteCriter: any, options?: any): Promise<boolean>;
     count(filter: any, options?: any): Promise<number>;
     getTransaction(options?: any): Promise<any>;
@@ -44,6 +45,10 @@ implements
 
     async updateOne(id: number, item: MoneyInventoryDom, options?: any): Promise<MoneyInventoryDom | null> {
         return await this.repository.updateOne(id, item, options);
+    }
+
+    async updateMany(updateCriteria: any, updateFields: any, options?: any): Promise<boolean> {
+        return await this.repository.updateMany(updateCriteria, updateFields, options);
     }
 
     async deleteOne(deleteCriter: any, options?: any): Promise<boolean> {
