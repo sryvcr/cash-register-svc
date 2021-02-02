@@ -4,6 +4,7 @@ import { MoneyTransacitonController } from '../../../../interface_adapters/web/c
 const moneyTransactionCtrl = new MoneyTransacitonController();
 
 const router = Router();
+router.get('/status', moneyTransactionCtrl.get);
 router.put('/deposit', moneyTransactionCtrl.deposit);
 router.put('/vacate', moneyTransactionCtrl.vacate);
 

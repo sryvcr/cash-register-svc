@@ -2,12 +2,24 @@ import { ControllerBase } from "./bases/controller_base";
 import moneyInventorySvc from "../../../domain/app_rules/money_inventory/index";
 import { HTTPCodesEnum } from "../../../domain/enterprise_rules/dtos/enums/errors_enums";
 import { ApiResponse } from "../../../domain/enterprise_rules/dtos/responses/api_response";
+import { ListResponse } from '../../../domain/enterprise_rules/dtos/responses/list_response';
+import { moneyInventoryMapper } from './mappers/money_inventory_mapper';
 
 
 export class MoneyTransacitonController extends ControllerBase {
 
     async get(req: any, res: any, next: any): Promise<void> {
-        throw new Error("Method not implemented.");
+        try {
+            const result: [any[], number] = await moneyInventorySvc.getStatus({});
+            const resultApi: any[] = result[0].map(res => moneyInventoryMapper.fromDomToApi(res));
+            res.status(HTTPCodesEnum.SUCCESSFUL);
+            res.json(new ApiResponse(
+                HTTPCodesEnum.SUCCESSFUL,
+                new ListResponse(resultApi, result[1])
+            ));
+        } catch (error) {
+            next(error);
+        }
     }
 
     async getById(req: any, res: any, next: any): Promise<void> {

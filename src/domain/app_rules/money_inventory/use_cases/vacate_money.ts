@@ -1,5 +1,4 @@
 import { CoinEnum } from "../../../enterprise_rules/validators/coin_validator";
-import { makeMoneyInventory } from "../../../enterprise_rules/entities/money_inventory/index";
 
 
 export function buildVacateMoney({
