@@ -4,6 +4,7 @@ import { BadRequestError } from "../../dtos/errors/bad_request_error";
 export interface IMoneyInventory {
     id: number;
     coin: number;
+    quantity: number;
     total: number;
 }
 
@@ -11,11 +12,13 @@ export class MoneyInventoryDom implements IMoneyInventory {
 
     id: number;
     coin: number;
+    quantity: number;
     total: number;
 
     constructor(item: IMoneyInventory) {
         this.id = item.id;
         this.coin = item.coin;
+        this.quantity = item.quantity;
         this.total = item.total;
     }
 }
@@ -33,6 +36,7 @@ export function buildMoneyInventory({
     function validateData(item: IMoneyInventory): IMoneyInventory {
         validateNum(item.id, "id");
         validateCoin(item.coin, "coin");
+        validateNum(item.quantity, "quantity");
         validateNum(item.total, "total");
         return item;
     }
