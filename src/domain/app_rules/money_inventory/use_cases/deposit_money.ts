@@ -23,6 +23,7 @@ export function buildDepositMoney({
                     logger.debug(`total: ${totalAmount}`);
                     const moneyInventory = await moneyInventoryRepo.getOne({ coin });
                     logger.debug(`moneyInventory: ${JSON.stringify(moneyInventory)}`);
+                    moneyInventory.quantity += quantity;
                     moneyInventory.total += totalAmount;
                     const entity = makeMoneyInventory(moneyInventory);
                     const moneyInventoryUpdated = await moneyInventoryRepo.updateOne(
