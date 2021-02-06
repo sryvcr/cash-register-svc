@@ -29,6 +29,14 @@ class MoneyInventoryDal extends Model {
         type: DataType.INTEGER,
         allowNull: false,
         defaultValue: 0,
+        field: 'quantity',
+    })
+    quantity!: number;
+
+    @Column({
+        type: DataType.INTEGER,
+        allowNull: false,
+        defaultValue: 0,
         field: 'total',
     })
     total!: number;

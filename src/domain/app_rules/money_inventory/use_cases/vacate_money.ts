@@ -27,7 +27,8 @@ export function buildVacateMoney({
                 ]
             }
             const updateFields = {
-                total: 0
+                total: 0,
+                quantity: 0
             }
             const result = await moneyInventoryRepo.updateMany(
                 searchCriteria,

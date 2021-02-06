@@ -175,8 +175,9 @@ implements
 
     fromDalToDom(item: MoneyInventoryDal): MoneyInventoryDom {
         const resDom: MoneyInventoryDom = new MoneyInventoryDom({
-            id: item.id,
+            id: parseInt(`${item.id}`),
             coin: parseInt(`${item.coin}`),
+            quantity: parseInt(`${item.quantity}`),
             total: parseInt(`${item.total}`)
         });
         return resDom;
@@ -185,7 +186,6 @@ implements
     filterApiToDal(filter: any): any {
         const mapFilter: any = {};
         for (const key in filter) {
-            
             switch (key) {
                 case "coin":
                     mapFilter[key] = {

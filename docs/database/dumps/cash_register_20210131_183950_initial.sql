@@ -53,7 +53,8 @@ SET default_tablespace = '';
 CREATE TABLE public.money_inventory (
     id bigint NOT NULL,
     coin public.coin_types NOT NULL,
-    total integer DEFAULT 0 NOT NULL
+    quantity integer DEFAULT 0 NOT NULL,
+    total bigint DEFAULT 0 NOT NULL
 );
 
 
@@ -74,17 +75,17 @@ CREATE TABLE public.transactions (
 -- Data for Name: money_inventory; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-INSERT INTO public.money_inventory (id, coin, total) VALUES
-	(1, '50', 0),
-	(2, '100', 0),
-	(3, '200', 0),
-	(4, '500', 0),
-	(5, '1000', 0),
-	(6, '5000', 0),
-	(7, '10000', 0),
-	(8, '20000', 0),
-	(9, '50000', 0),
-	(10, '100000', 0);
+INSERT INTO public.money_inventory (id, coin, quantity, total) VALUES
+	(5, '1000', 0, 0),
+	(8, '20000', 0, 0),
+	(1, '50', 0, 0),
+	(2, '100', 0, 0),
+	(3, '200', 0, 0),
+	(4, '500', 0, 0),
+	(6, '5000', 0, 0),
+	(7, '10000', 0, 0),
+	(9, '50000', 0, 0),
+	(10, '100000', 0, 0);
 
 
 --
