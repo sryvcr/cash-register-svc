@@ -24,6 +24,7 @@ const depositMoney = buildDepositMoney({
 });
 const vacateMoney = buildVacateMoney({
     moneyInventoryRepo,
+    transactionsRepo,
     Logger
 });
 
