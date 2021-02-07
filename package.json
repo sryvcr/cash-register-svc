@@ -35,7 +35,7 @@
   "scripts": {
     "ts": "tsc -w",
     "dev": "nodemon | pino-pretty",
-    "start": "node -r tsconfig-paths/register ./src/index.js",
+    "start": "node ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

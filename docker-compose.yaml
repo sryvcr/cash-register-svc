@@ -1,0 +1,52 @@
+version: "3"
+
+services:
+  cash-register-svc:
+    container_name: cash-register-svc
+    image: cash-register-svc:1.0.0
+    build:
+        context: .
+        dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: "development"
+      SVC_NAME: "cash_register_svc"
+      HTTP_PORT: "6500"
+      PSQL_CLIENT: "psql_client"
+      PSQL_HOST: "db"
+      PSQL_PORT: "5432"
+      PSQL_USERNAME: "postgres"
+      PSQL_PASSWORD: "postgres"
+      PSQL_DATABASE: "cash_register_db"
+      PSQL_POOL_MAX: "5"
+      PSQL_POOL_MIN: "1"
+      PSQL_POOL_IDLE: "10000"
+      MONEY_INVENTORY_TABLE: "money_inventory"
+      TRANSACTIONS_TABLE: "transactions"
+    ports:
+      - 6500:6500
+    networks:
+      - db_network
+    depends_on:
+      - db
+    links:
+      - db:db
+
+  db:
+    container_name: cash-register-db
+    image: postgres:11.7-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: cash_register_db
+    volumes:
+      - db_vol:/var/lib/postgresql/data
+    networks:
+      - db_network
+
+volumes:
+  db_vol:
+
+networks:
+  db_network:
+    # name: cash_register_db_network
+    driver: bridge
