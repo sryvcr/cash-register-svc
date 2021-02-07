@@ -29,6 +29,20 @@ export class TransactionsController extends ControllerBase {
         throw new Error("Method not implemented.");
     }
 
+    async getAmountTillDatetime(req: any, res: any, next: any): Promise<void> {
+        try {
+            const { till_datetime } = req.params;
+            const result: number = await transactionsSvc.getAmountTillDatetime(till_datetime);
+            res.status(HTTPCodesEnum.SUCCESSFUL);
+            res.json(new ApiResponse(
+                HTTPCodesEnum.SUCCESSFUL,
+                result
+            ));
+        } catch (error) {
+            next(error);
+        }
+    }
+
     async post(req: any, res: any, next: any): Promise<void> {
         throw new Error("Method not implemented.");
     }

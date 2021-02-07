@@ -178,6 +178,11 @@ implements
                         [Op.eq]: filter[key]
                     };
                     break;
+                case "till_datetime":
+                    mapFilter['created_at'] = {
+                        [Op.lte]: filter[key]
+                    };
+                    break;
                 default:
                     break;
             }
