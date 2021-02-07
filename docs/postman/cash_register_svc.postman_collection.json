@@ -1,0 +1,607 @@
+{
+	"info": {
+		"_postman_id": "0824e872-32c1-44f1-820f-addfb33f33d6",
+		"name": "cash_register_svc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "money_inventory",
+			"item": [
+				{
+					"name": "v1/money-inventory/status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/money-inventory/status",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"money-inventory",
+								"status"
+							]
+						},
+						"description": "Permite obtener el status actual del la caja registradora, en la variable result.items que muestra las monedas que tiene y sus respectivas cantidades.\n\nAdemás de eso, result.items.total, devuelve el valor total del dinero que tiene la caja registradora"
+					},
+					"response": [
+						{
+							"name": "v1/money-transaction/status - 200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/v1/money-inventory/status",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"v1",
+										"money-inventory",
+										"status"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "486"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1e6-TWd0Nqb+d0nSMfiTcmV5RFZYpJw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 Feb 2021 06:13:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": {\n        \"items\": [\n            {\n                \"id\": 1,\n                \"coin\": 50,\n                \"quantity\": 0,\n                \"total\": 0\n            },\n            {\n                \"id\": 2,\n                \"coin\": 100,\n                \"quantity\": 0,\n                \"total\": 0\n            },\n            {\n                \"id\": 3,\n                \"coin\": 200,\n                \"quantity\": 0,\n                \"total\": 0\n            },\n            {\n                \"id\": 4,\n                \"coin\": 500,\n                \"quantity\": 0,\n                \"total\": 0\n            },\n            {\n                \"id\": 5,\n                \"coin\": 1000,\n                \"quantity\": 0,\n                \"total\": 0\n            },\n            {\n                \"id\": 6,\n                \"coin\": 5000,\n                \"quantity\": 0,\n                \"total\": 0\n            },\n            {\n                \"id\": 7,\n                \"coin\": 10000,\n                \"quantity\": 0,\n                \"total\": 0\n            },\n            {\n                \"id\": 8,\n                \"coin\": 20000,\n                \"quantity\": 0,\n                \"total\": 0\n            },\n            {\n                \"id\": 10,\n                \"coin\": 100000,\n                \"quantity\": 0,\n                \"total\": 0\n            },\n            {\n                \"id\": 9,\n                \"coin\": 50000,\n                \"quantity\": 0,\n                \"total\": 0\n            }\n        ],\n        \"total\": 0\n    },\n    \"status\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "v1/money-inventory/deposit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"1000\": 1,\n    \"20000\": 2,\n    \"2000\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/money-inventory/deposit",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"money-inventory",
+								"deposit"
+							]
+						},
+						"description": "Permite depositar dinero en la caja registradora"
+					},
+					"response": [
+						{
+							"name": "v1/money-transaction/deposit - 200 OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"1000\": 1,\n    \"20000\": 2,\n    \"2000\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/v1/money-inventory/deposit",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"v1",
+										"money-inventory",
+										"deposit"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"45-H273FoozVf9PmY42h3Kv4+CEKdY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 Feb 2021 05:02:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": {\n        \"1000\": \"ok\",\n        \"2000\": \"not valid\",\n        \"20000\": \"ok\"\n    },\n    \"status\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "v1/money-inventory/vacate",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/money-inventory/vacate",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"money-inventory",
+								"vacate"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "v1/money-transaction/vacate - 400 empty cash register",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/v1/money-inventory/vacate",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"v1",
+										"money-inventory",
+										"vacate"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "47"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2f-dvfHrcE0RSLlKX2KnLEWCOciTLs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 Feb 2021 05:13:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Cash register is empty\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "transactions",
+			"item": [
+				{
+					"name": "v1/transactions/get-all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/transactions/get-all",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"transactions",
+								"get-all"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "deposit",
+									"disabled": true
+								},
+								{
+									"key": "amount",
+									"value": "41000",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Permite obtener un registro de transacciones (eventos) que ha tenido la caja registradora."
+					},
+					"response": [
+						{
+							"name": "v1/transactions/get-all - 200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/v1/transactions/get-all",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"v1",
+										"transactions",
+										"get-all"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "deposit",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"disabled": true
+										},
+										{
+											"key": "offset",
+											"value": "0",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "753"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2f1-BBIUULSc4lMhkccLzZHIluTRztY\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 Feb 2021 06:09:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": {\n        \"items\": [\n            {\n                \"id\": \"ebcec7c9-c9ad-4b1d-9c73-ad39c41f3adb\",\n                \"amount\": 41000,\n                \"type\": \"vacate\",\n                \"coins\": null\n            },\n            {\n                \"id\": \"75d614b6-a0bf-439a-be04-70ab48d36e9f\",\n                \"amount\": 41000,\n                \"type\": \"deposit\",\n                \"coins\": {\n                    \"1000\": 1,\n                    \"20000\": 2\n                }\n            },\n            {\n                \"id\": \"2b33078a-a07a-4616-a9eb-b7cc194864c7\",\n                \"amount\": 32500,\n                \"type\": \"vacate\",\n                \"coins\": null\n            },\n            {\n                \"id\": \"beb92a62-8cf8-458f-bb57-49e0c0bb718a\",\n                \"amount\": 32500,\n                \"type\": \"deposit\",\n                \"coins\": {\n                    \"500\": 5,\n                    \"10000\": 3\n                }\n            },\n            {\n                \"id\": \"4cc00294-d587-407a-a385-08394d6d1629\",\n                \"amount\": 153000,\n                \"type\": \"vacate\",\n                \"coins\": null\n            },\n            {\n                \"id\": \"cbea7c6c-7d0f-4896-97ab-134668917686\",\n                \"amount\": 112000,\n                \"type\": \"deposit\",\n                \"coins\": {\n                    \"200\": 10,\n                    \"5000\": 2,\n                    \"50000\": 2\n                }\n            },\n            {\n                \"id\": \"84175f25-f59b-4c63-be13-ca1d7f0a0b88\",\n                \"amount\": 41000,\n                \"type\": \"deposit\",\n                \"coins\": {\n                    \"1000\": 1,\n                    \"20000\": 2\n                }\n            }\n        ],\n        \"total\": 7\n    },\n    \"status\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "v1/transactions/get-amount/:till_datetime",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/transactions/get-amount/:till_datetime",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"transactions",
+								"get-amount",
+								":till_datetime"
+							],
+							"variable": [
+								{
+									"key": "till_datetime",
+									"value": "2021-02-07T23:59:59",
+									"description": "format: iso8601"
+								}
+							]
+						},
+						"description": "Permite obtener el estado de la caja registradora hasta (monto de dinero que tenía) una fecha determinada."
+					},
+					"response": [
+						{
+							"name": "v1/transactions/get-amount/:till_datetime - 200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/v1/transactions/get-amount/:till_datetime",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"v1",
+										"transactions",
+										"get-amount",
+										":till_datetime"
+									],
+									"variable": [
+										{
+											"key": "till_datetime",
+											"value": "2021-02-07T05:02:58"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"28-xF9hqtwRyi2nLU41oWZeNjmhIHo\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 Feb 2021 07:04:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": {\n        \"amount\": 41000\n    },\n    \"status\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "v1/transactions/create-payment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 1000,\n    \"coins\": {\n        \"1000\": 1\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/transactions/create-payment",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"transactions",
+								"create-payment"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "v1/transactions/create-payment - 200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"amount\": 42000,\n    \"coins\": {\n        \"50000\": 1\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/v1/transactions/create-payment",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"v1",
+										"transactions",
+										"create-payment"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "82"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"52-k7YmKZW4FvYpqJFYOcwMP0DYq0w\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 07 Feb 2021 21:28:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": {\n        \"change_money\": {\n            \"total\": 8000,\n            \"coins\": {\n                \"500\": 6,\n                \"1000\": 5\n            }\n        }\n    },\n    \"status\": 201\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
