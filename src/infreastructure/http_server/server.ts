@@ -4,6 +4,7 @@ import cors from "cors";
 import Logger from "../external_interfaces/logger";
 import errorHandler from "./middlewares/error_handler";
 import { loggingRequests } from "./middlewares/logging_requests";
+import { CheckLimitOffsetRequests } from "./middlewares/check_limit_offset_requests";
 import { routes as appRoutes } from "./routes/index";
 
 
@@ -31,6 +32,7 @@ export class Server {
 
     routes() {
         this.app.use(loggingRequests());
+        this.app.use(CheckLimitOffsetRequests());
         this.app.use(appRoutes);
     }
 
