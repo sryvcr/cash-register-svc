@@ -174,7 +174,7 @@ implements
             switch (key) {
                 case "type":
                     mapFilter[key] = {
-                        [Op.iLike]: `%${filter[key]}%`
+                        [Op.eq]: filter[key]
                     };
                     break;
                 default:
