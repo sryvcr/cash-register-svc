@@ -16,8 +16,8 @@ function buildTransactionsList({ transactionsRepo }: IBuildList) {
                 [ ['created_at', 'DESC'] ],
             ],
         };
-        const inspectionFieldsList: ITransactions[] = await transactionsRepo.getAll(opts);
-        return inspectionFieldsList;
+        const transactionsList: ITransactions[] = await transactionsRepo.getAll(opts);
+        return transactionsList;
     }
 }
 

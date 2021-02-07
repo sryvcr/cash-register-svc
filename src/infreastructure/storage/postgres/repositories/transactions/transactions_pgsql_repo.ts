@@ -173,6 +173,7 @@ implements
         for (const key in filter) {
             switch (key) {
                 case "type":
+                case "amount":
                     mapFilter[key] = {
                         [Op.eq]: filter[key]
                     };
