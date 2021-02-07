@@ -47,6 +47,16 @@ export class TransactionsController extends ControllerBase {
         throw new Error("Method not implemented.");
     }
 
+    async createPayment(req: any, res: any, next: any): Promise<void> {
+        try {
+            const result = await transactionsSvc.createPayment(req.body);
+            res.status(HTTPCodesEnum.CREATED);
+            res.json(new ApiResponse(HTTPCodesEnum.CREATED, result));
+        } catch (error) {
+            next(error);
+        }
+    }
+
     async put(req: any, res: any, next: any): Promise<void> {
         throw new Error("Method not implemented.");
     }

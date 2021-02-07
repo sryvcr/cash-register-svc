@@ -7,5 +7,6 @@ const transactionsCtrl = new TransactionsController();
 const router = Router();
 router.get('/get-all', transactionsFilter, transactionsCtrl.get);
 router.get('/get-amount/:till_datetime', transactionsFilter, transactionsCtrl.getAmountTillDatetime);
+router.post('/create-payment', transactionsCtrl.createPayment);
 
 export { router };

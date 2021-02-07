@@ -189,7 +189,17 @@ implements
             switch (key) {
                 case "coin":
                     mapFilter[key] = {
-                        [Op.eq]: `${filter[key]}`
+                        [Op.eq]: filter[key]
+                    };
+                    break;
+                case "coin_lte":
+                    mapFilter['coin'] = {
+                        [Op.lte]: filter[key]
+                    };
+                    break;
+                case "total_gt":
+                    mapFilter['total'] = {
+                        [Op.gt]: filter[key]
                     };
                     break;
                 default:
