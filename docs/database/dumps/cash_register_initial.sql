@@ -54,7 +54,7 @@ SET default_tablespace = '';
 
 CREATE TABLE public.money_inventory (
     id bigint NOT NULL,
-    coin public.coin_types NOT NULL,
+    coin integer NOT NULL,
     quantity integer DEFAULT 0 NOT NULL,
     total bigint DEFAULT 0 NOT NULL
 );
@@ -69,7 +69,7 @@ CREATE TABLE public.transactions (
     amount integer NOT NULL,
     type public.transaction_types NOT NULL,
     created_at timestamp without time zone NOT NULL,
-    coins json NOT NULL
+    coins json
 );
 
 
@@ -78,16 +78,16 @@ CREATE TABLE public.transactions (
 --
 
 INSERT INTO public.money_inventory (id, coin, quantity, total) VALUES
-	(5, '1000', 0, 0),
-	(8, '20000', 0, 0),
-	(1, '50', 0, 0),
-	(2, '100', 0, 0),
-	(3, '200', 0, 0),
-	(4, '500', 0, 0),
-	(6, '5000', 0, 0),
-	(7, '10000', 0, 0),
-	(9, '50000', 0, 0),
-	(10, '100000', 0, 0);
+	(3, 200, 0, 0),
+	(6, 5000, 0, 0),
+	(1, 50, 0, 0),
+	(2, 100, 0, 0),
+	(10, 100000, 0, 0),
+	(4, 500, 0, 0),
+	(9, 50000, 0, 0),
+	(8, 20000, 0, 0),
+	(7, 10000, 0, 0),
+	(5, 1000, 0, 0);
 
 
 --
@@ -118,6 +118,20 @@ ALTER TABLE ONLY public.transactions
 
 ALTER TABLE ONLY public.money_inventory
     ADD CONSTRAINT unique_coin_inventory_coin UNIQUE (coin);
+
+
+--
+-- Name: index_created_at; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_created_at ON public.transactions USING btree (created_at);
+
+
+--
+-- Name: index_type; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_type ON public.transactions USING btree (type);
 
 
 --

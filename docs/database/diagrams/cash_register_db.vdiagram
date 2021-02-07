@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="utf-8"?>
+<properties>
+	<Controls>
+		<Table1>
+			<Parent value="#TOP"/>
+			<Properties>
+				<^checks value="0"/>
+				<^group value="-1"/>
+				<^height value="-1"/>
+				<^indexes value="0"/>
+				<^level value="4"/>
+				<^links value="0"/>
+				<^lock value="0"/>
+				<^methods value="0"/>
+				<^minimized value="0"/>
+				<^properties value="0"/>
+				<^triggers value="0"/>
+				<^uniques value="0"/>
+				<back_color value="B4D64700"/>
+				<name value="Table1"/>
+				<position value="268;50"/>
+				<size value="235;176"/>
+				<sort_fields value="0"/>
+			</Properties>
+			<Type value="Table"/>
+		</Table1>
+		<Table2>
+			<Parent value="#TOP"/>
+			<Properties>
+				<^checks value="0"/>
+				<^group value="-1"/>
+				<^height value="-1"/>
+				<^indexes value="0"/>
+				<^level value="2"/>
+				<^links value="0"/>
+				<^lock value="0"/>
+				<^methods value="0"/>
+				<^minimized value="0"/>
+				<^properties value="0"/>
+				<^triggers value="0"/>
+				<^uniques value="0"/>
+				<back_color value="B4D64700"/>
+				<name value="Table2"/>
+				<position value="558;50"/>
+				<size value="280;204"/>
+				<sort_fields value="0"/>
+			</Properties>
+			<Type value="Table"/>
+		</Table2>
+		<Type1>
+			<Parent value="#TOP"/>
+			<Properties>
+				<^group value="-1"/>
+				<^height value="316"/>
+				<^level value="3"/>
+				<^localizations value="0"/>
+				<^lock value="0"/>
+				<^minimized value="0"/>
+				<^properties value="0"/>
+				<back_color value="EFDB4700"/>
+				<name value="Type1"/>
+				<position value="42;50"/>
+				<size value="166;316"/>
+			</Properties>
+			<Type value="Type"/>
+		</Type1>
+		<Type2>
+			<Parent value="#TOP"/>
+			<Properties>
+				<^group value="-1"/>
+				<^height value="-1"/>
+				<^level value="1"/>
+				<^localizations value="0"/>
+				<^lock value="0"/>
+				<^minimized value="0"/>
+				<^properties value="0"/>
+				<back_color value="EFDB4700"/>
+				<name value="Type2"/>
+				<position value="893;50"/>
+				<size value="222;148"/>
+			</Properties>
+			<Type value="Type"/>
+		</Type2>
+		<cash_register>
+			<Properties>
+				<^lock value="0"/>
+				<back_color value="FFFFFF"/>
+				<font value=""/>
+				<gamma value="0"/>
+				<name value="cash_register"/>
+				<size value="3072;3072"/>
+				<style value="4"/>
+				<style_links value="0"/>
+				<units value="5"/>
+			</Properties>
+			<Type value="Diagram"/>
+		</cash_register>
+	</Controls>
+	<GUI>
+		<FullToolbarLeft value="1"/>
+		<FullToolbarRight value="1"/>
+		<HiddenLinks value=""/>
+		<PageEditor value="-1"/>
+		<PageEditorH value="0"/>
+		<PageToolbarLeft value="0"/>
+		<PageToolbarRB value="0"/>
+		<PageToolbarRight value="0"/>
+		<ScrollX value="0"/>
+		<ScrollY value="0"/>
+		<Selection value="Y2FzaF9yZWdpc3Rlcg=="/>
+		<ShowAll value="1"/>
+		<ShowChanges value="1"/>
+		<ShowGL value="1"/>
+		<ShowGrid value="1"/>
+		<UseGrid value="0"/>
+	</GUI>
+	<Model>
+		<public>
+			<Tables>
+				<o0>
+					<Changes value=""/>
+					<Fields>
+						<o0>
+							<Changes value=""/>
+							<Properties>
+								<Collation value=""/>
+								<Comment value=""/>
+								<Default_Value value=""/>
+								<Dimensions value="0"/>
+								<Field_Position value="1"/>
+								<Indexed value="1"/>
+								<Name value="id"/>
+								<Nullable value="0"/>
+								<Type value="Bigint"/>
+								<Unique value="1"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="id"/>
+						</o0>
+						<o1>
+							<Changes value=""/>
+							<Properties>
+								<Collation value=""/>
+								<Comment value=""/>
+								<Default_Value value=""/>
+								<Dimensions value="0"/>
+								<Field_Position value="2"/>
+								<Indexed value="1"/>
+								<Length value=""/>
+								<Name value="coin"/>
+								<Nullable value="0"/>
+								<Type value="Integer"/>
+								<Unique value="1"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="coin"/>
+						</o1>
+						<o2>
+							<Changes value=""/>
+							<Properties>
+								<Collation value=""/>
+								<Comment value=""/>
+								<Default_Value value="0"/>
+								<Dimensions value="0"/>
+								<Field_Position value="3"/>
+								<Indexed value="0"/>
+								<Name value="quantity"/>
+								<Nullable value="0"/>
+								<Type value="Integer"/>
+								<Unique value="0"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="quantity"/>
+						</o2>
+						<o3>
+							<Changes value=""/>
+							<Properties>
+								<Collation value=""/>
+								<Comment value=""/>
+								<Default_Value value="0"/>
+								<Dimensions value="0"/>
+								<Field_Position value="4"/>
+								<Indexed value="0"/>
+								<Name value="total"/>
+								<Nullable value="0"/>
+								<Type value="Bigint"/>
+								<Unique value="0"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="total"/>
+						</o3>
+					</Fields>
+					<Properties>
+						<Check_Count value="0"/>
+						<Comment value=""/>
+						<Field_Count value="4"/>
+						<Has_OIDs value="0"/>
+						<ID value="40994"/>
+						<Index_Count value="0"/>
+						<Link_Count value="0"/>
+						<Name value="money_inventory"/>
+						<Object_Owner value="postgresadmin"/>
+						<Primary_Key value="id"/>
+						<Primary_Key_Name value="coin_inventory_pkey"/>
+						<Record_Count value="10"/>
+						<Schema value="public"/>
+						<Trigger_Count value="0"/>
+						<Unique_Count value="1"/>
+					</Properties>
+					<Uniques>
+						<o0>
+							<Changes value=""/>
+							<Properties>
+								<Comment value=""/>
+								<Fields value="coin"/>
+								<ID value="49334"/>
+								<Name value="unique_coin_inventory_coin"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<id value="49334"/>
+							<name value="unique_coin_inventory_coin"/>
+						</o0>
+					</Uniques>
+					<control value="Table1"/>
+					<delete value="0"/>
+					<id value="40994"/>
+					<name value="money_inventory"/>
+				</o0>
+				<o1>
+					<Changes value=""/>
+					<Fields>
+						<o0>
+							<Changes value=""/>
+							<Properties>
+								<Collation value=""/>
+								<Comment value=""/>
+								<Default_Value value=""/>
+								<Dimensions value="0"/>
+								<Field_Position value="1"/>
+								<Indexed value="1"/>
+								<Name value="id"/>
+								<Nullable value="0"/>
+								<Type value="UUid"/>
+								<Unique value="1"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="id"/>
+						</o0>
+						<o1>
+							<Changes value=""/>
+							<Properties>
+								<Collation value=""/>
+								<Comment value=""/>
+								<Default_Value value=""/>
+								<Dimensions value="0"/>
+								<Field_Position value="2"/>
+								<Indexed value="0"/>
+								<Name value="amount"/>
+								<Nullable value="0"/>
+								<Type value="Integer"/>
+								<Unique value="0"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="amount"/>
+						</o1>
+						<o2>
+							<Changes value=""/>
+							<Properties>
+								<Collation value=""/>
+								<Comment value=""/>
+								<Default_Value value=""/>
+								<Dimensions value="0"/>
+								<Field_Position value="3"/>
+								<Indexed value="1"/>
+								<Length value=""/>
+								<Name value="type"/>
+								<Nullable value="0"/>
+								<Type value='"public"."transaction_types"'/>
+								<Unique value="0"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="type"/>
+						</o2>
+						<o3>
+							<Changes value=""/>
+							<Properties>
+								<Collation value=""/>
+								<Comment value=""/>
+								<Default_Value value=""/>
+								<Dimensions value="0"/>
+								<Field_Position value="4"/>
+								<Indexed value="1"/>
+								<Name value="created_at"/>
+								<Nullable value="0"/>
+								<Precision value="-1"/>
+								<Type value="Timestamp Without Time Zone"/>
+								<Unique value="0"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="created_at"/>
+						</o3>
+						<o4>
+							<Changes value=""/>
+							<Properties>
+								<Collation value=""/>
+								<Comment value=""/>
+								<Default_Value value=""/>
+								<Dimensions value="0"/>
+								<Field_Position value="5"/>
+								<Indexed value="0"/>
+								<Name value="coins"/>
+								<Nullable value="1"/>
+								<Type value="JSON"/>
+								<Unique value="0"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="coins"/>
+						</o4>
+					</Fields>
+					<Indexes>
+						<o0>
+							<Changes value=""/>
+							<Properties>
+								<Clustered value="0"/>
+								<Comment value=""/>
+								<Fields value="type	Asc	Last"/>
+								<ID value="41162"/>
+								<Name value="index_type"/>
+								<Text value="CREATE INDEX index_type ON public.transactions USING btree (type)"/>
+								<Type value="btree"/>
+								<Unique value="0"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<id value="41162"/>
+							<name value="index_type"/>
+						</o0>
+						<o1>
+							<Changes value=""/>
+							<Properties>
+								<Clustered value="0"/>
+								<Comment value=""/>
+								<Fields value="created_at	Asc	Last"/>
+								<ID value="41163"/>
+								<Name value="index_created_at"/>
+								<Text value="CREATE INDEX index_created_at ON public.transactions USING btree (created_at)"/>
+								<Type value="btree"/>
+								<Unique value="0"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<id value="41163"/>
+							<name value="index_created_at"/>
+						</o1>
+					</Indexes>
+					<Properties>
+						<Check_Count value="0"/>
+						<Comment value=""/>
+						<Field_Count value="5"/>
+						<Has_OIDs value="0"/>
+						<ID value="40989"/>
+						<Index_Count value="2"/>
+						<Link_Count value="0"/>
+						<Name value="transactions"/>
+						<Object_Owner value="postgresadmin"/>
+						<Primary_Key value="id"/>
+						<Primary_Key_Name value="transactions_pkey"/>
+						<Record_Count value="0"/>
+						<Schema value="public"/>
+						<Trigger_Count value="0"/>
+						<Unique_Count value="0"/>
+					</Properties>
+					<control value="Table2"/>
+					<delete value="0"/>
+					<id value="40989"/>
+					<name value="transactions"/>
+				</o1>
+			</Tables>
+			<Types>
+				<o0>
+					<Changes value=""/>
+					<Properties>
+						<Collation value=""/>
+						<Comment value=""/>
+						<Element_Count value="10"/>
+						<ID value="41100"/>
+						<Kind value="Enum"/>
+						<Length value="4"/>
+						<Name value="coin_types"/>
+						<Object_Owner value="postgresadmin"/>
+						<Schema value="public"/>
+					</Properties>
+					<Values>
+						<o0>
+							<Changes value=""/>
+							<Properties>
+								<Name value="50"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="50"/>
+						</o0>
+						<o1>
+							<Changes value=""/>
+							<Properties>
+								<Name value="100"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="100"/>
+						</o1>
+						<o2>
+							<Changes value=""/>
+							<Properties>
+								<Name value="200"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="200"/>
+						</o2>
+						<o3>
+							<Changes value=""/>
+							<Properties>
+								<Name value="500"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="500"/>
+						</o3>
+						<o4>
+							<Changes value=""/>
+							<Properties>
+								<Name value="1000"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="1000"/>
+						</o4>
+						<o5>
+							<Changes value=""/>
+							<Properties>
+								<Name value="5000"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="5000"/>
+						</o5>
+						<o6>
+							<Changes value=""/>
+							<Properties>
+								<Name value="10000"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="10000"/>
+						</o6>
+						<o7>
+							<Changes value=""/>
+							<Properties>
+								<Name value="20000"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="20000"/>
+						</o7>
+						<o8>
+							<Changes value=""/>
+							<Properties>
+								<Name value="50000"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="50000"/>
+						</o8>
+						<o9>
+							<Changes value=""/>
+							<Properties>
+								<Name value="100000"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="100000"/>
+						</o9>
+					</Values>
+					<control value="Type1"/>
+					<delete value="0"/>
+					<id value="41100"/>
+					<name value="coin_types"/>
+				</o0>
+				<o1>
+					<Changes value=""/>
+					<Properties>
+						<Collation value=""/>
+						<Comment value=""/>
+						<Default_Value value=""/>
+						<Element_Count value="4"/>
+						<ID value="40984"/>
+						<Kind value="Enum"/>
+						<Length value="4"/>
+						<Name value="transaction_types"/>
+						<Object_Owner value="postgresadmin"/>
+						<Proc_Analyze value=""/>
+						<Proc_Analyze_Schema value=""/>
+						<Proc_Input value="enum_in"/>
+						<Proc_Input_Schema value="pg_catalog"/>
+						<Proc_Modifier_Input value=""/>
+						<Proc_Modifier_Input_Schema value=""/>
+						<Proc_Modifier_Output value=""/>
+						<Proc_Modifier_Output_Schema value=""/>
+						<Proc_Output value="enum_out"/>
+						<Proc_Output_Schema value="pg_catalog"/>
+						<Proc_Rceive value="enum_recv"/>
+						<Proc_Rceive_Schema value="pg_catalog"/>
+						<Proc_Send value="enum_send"/>
+						<Proc_Send_Schema value="pg_catalog"/>
+						<Schema value="public"/>
+						<Type_Alignment value="int"/>
+						<Type_Delimeter value=","/>
+						<Type_Pass_By_Value value="1"/>
+						<Type_Storage value="Plain"/>
+					</Properties>
+					<Values>
+						<o0>
+							<Changes value=""/>
+							<Properties>
+								<Name value="deposit"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="deposit"/>
+						</o0>
+						<o1>
+							<Changes value=""/>
+							<Properties>
+								<Name value="retirement"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="retirement"/>
+						</o1>
+						<o2>
+							<Changes value=""/>
+							<Properties>
+								<Name value="vacate"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="vacate"/>
+						</o2>
+						<o3>
+							<Changes value=""/>
+							<Properties>
+								<Name value="payment"/>
+							</Properties>
+							<control value=""/>
+							<delete value="0"/>
+							<name value="payment"/>
+						</o3>
+					</Values>
+					<control value="Type2"/>
+					<delete value="0"/>
+					<id value="40984"/>
+					<name value="transaction_types"/>
+				</o1>
+			</Types>
+		</public>
+	</Model>
+	<Scene>
+		<HeightPX value="3072"/>
+		<WidthPX value="3072"/>
+	</Scene>
+	<version value="100603"/>
+</properties>
+
