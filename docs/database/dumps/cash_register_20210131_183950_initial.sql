@@ -40,7 +40,9 @@ CREATE TYPE public.coin_types AS ENUM (
 
 CREATE TYPE public.transaction_types AS ENUM (
     'deposit',
-    'retirement'
+    'retirement',
+    'vacate',
+    'payment'
 );
 
 
