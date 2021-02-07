@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import { MoneyTransacitonController } from '../../../../interface_adapters/web/controllers/money_inventory_controller';
+import { MoneyInventoryController } from '../../../../interface_adapters/web/controllers/money_inventory_controller';
 
-const moneyTransactionCtrl = new MoneyTransacitonController();
+const moneyInventoryCtrl = new MoneyInventoryController();
 
 const router = Router();
-router.get('/status', moneyTransactionCtrl.get);
-router.put('/deposit', moneyTransactionCtrl.deposit);
-router.put('/vacate', moneyTransactionCtrl.vacate);
+router.get('/status', moneyInventoryCtrl.get);
+router.put('/deposit', moneyInventoryCtrl.deposit);
+router.put('/vacate', moneyInventoryCtrl.vacate);
 
 export { router };

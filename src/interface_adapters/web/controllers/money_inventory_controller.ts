@@ -6,7 +6,7 @@ import { ListResponse } from '../../../domain/enterprise_rules/dtos/responses/li
 import { moneyInventoryMapper } from './mappers/money_inventory_mapper';
 
 
-export class MoneyTransacitonController extends ControllerBase {
+export class MoneyInventoryController extends ControllerBase {
 
     async get(req: any, res: any, next: any): Promise<void> {
         try {

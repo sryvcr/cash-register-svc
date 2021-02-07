@@ -1,4 +1,4 @@
-import { MoneyInventoryApi } from "../../../../domain/enterprise_rules/dtos/api_models/money_transaction_api";
+import { MoneyInventoryApi } from "../../../../domain/enterprise_rules/dtos/api_models/money_inventory_api";
 import { MoneyInventoryDom } from "../../../../domain/enterprise_rules/entities/money_inventory/money_inventory_dom";
 import { IMapperAPI } from "../bases/imapperapi_base";
 import { fromSnakeToCamel } from "../../../../infreastructure/helpers/from_snake_to_camel";
