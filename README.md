@@ -17,7 +17,8 @@ Via terminal:
 4. Enter into db dumps directory  
    `cd ./docs/database/dumps/`
 5. Execute file *restore_db_to_container* to restore initial sql dump into *cash-register-db* container  
-   `./restore_db_to_container.sh`
+   `./restore_db_to_container.sh`  
+   *API runs on port 6500*
 
 
 ## API docs:
