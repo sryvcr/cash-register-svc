@@ -5,8 +5,8 @@ services:
     container_name: cash-register-svc
     image: cash-register-svc:1.0.0
     build:
-        context: .
-        dockerfile: ./Dockerfile
+      context: .
+      dockerfile: ./Dockerfile
     environment:
       NODE_ENV: "development"
       SVC_NAME: "cash_register_svc"
@@ -22,6 +22,7 @@ services:
       PSQL_POOL_IDLE: "10000"
       MONEY_INVENTORY_TABLE: "money_inventory"
       TRANSACTIONS_TABLE: "transactions"
+      OPENAPI_DOCS: "/oas-docs"
     ports:
       - 6500:6500
     networks:
@@ -48,5 +49,4 @@ volumes:
 
 networks:
   db_network:
-    # name: cash_register_db_network
     driver: bridge
