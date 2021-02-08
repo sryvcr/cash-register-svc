@@ -1,0 +1,346 @@
+openapi: 3.0.0
+
+info:
+  title: cash-register-svc
+  description: Cash register API
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:6500/v1
+
+tags:
+  - name: money-inventory
+    description: "cash register money inventory service"
+  - name: transactions
+    description: "cash register transactions service"
+
+paths:
+  /money-inventory/status:
+    get:
+      tags:
+        - money-inventory
+      summary: Get all money inventory and its status
+      description: http://localhost:6500/v1/money-inventory/status
+      operationId: money-inventory:status
+      responses:
+        "200":
+          description: result.items = [ money-inventory-api-schema ]
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/responses/list_response"
+  /money-inventory/deposit:
+    put:
+      tags:
+        - money-inventory
+      summary: Deposit money inventory
+      description: http://localhost:6500/v1/money-inventory/deposit
+      operationId: money-inventory:deposit
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/money-inventory-deposit"
+        required: true
+      responses:
+        "200":
+          description: result = money-inventory-deposit-api-schema
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/responses/response"
+  /money-inventory/vacate:
+    put:
+      tags:
+        - money-inventory
+      summary: Vacate cash register
+      description: http://localhost:6500/v1/money-inventory/vacate
+      operationId: money-inventory:create-one
+      responses:
+        "204":
+            description: "Cash register vacated with no problems"
+        "400":
+          description: "Bad request and return error message."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/responses/error"
+  /transactions/get-all:
+    get:
+      tags:
+        - transactions
+      summary: Get all cash register transactions
+      description: http://localhost:6500/v1/transactions/get-all
+      operationId: transactions:get-all
+      parameters:
+        - in: query
+          name: type
+          required: false
+          schema:
+            type: string
+            example: deposit
+            enum:
+              - deposit
+              - payment
+              - vacate
+              - retirement
+        - in: query
+          name: amount
+          required: false
+          schema:
+            type: integer
+            example: 41000
+        - in: query
+          name: limit
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 100
+          description: "The numbers of items to return"
+        - in: query
+          name: offset
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 0
+          description: "The number of items to skip before starting to collect the result set"
+      responses:
+        "200":
+          description: result.items = [ transactions-api-schema ]
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/responses/response"
+  /transactions/{till_datetime}:
+    get:
+      tags:
+        - transactions
+      summary: Get cash register status untill certain date and time
+      description: http://localhost:6500/v1/transactions/{till_datetime}
+      operationId: transactions:get-till-datetime
+      parameters:
+        - name: till_datetime
+          in: path
+          required: true
+          style: simple
+          schema:
+            type: string
+            example: "2021-02-07T23:59:59"
+            format: date-time
+            description: "datetime must be in ISO 8601 format"
+      responses:
+        "200":
+          description: result = transactions-status-api-schema
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/responses/response"
+  /transactions/create-payment:
+    post:
+      tags:
+        - transactions
+      summary: create a payment transaction type and return change money
+      description: http://localhost:6500/v1/transactions/create-payment
+      operationId: transactions:create-payment
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/transaction-payment"
+      responses:
+        "201":
+          description: result = transaction-payment-api-schema
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/responses/response"
+        "400":
+          description: "Bad request and return error message."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/responses/error"
+
+components:
+  schemas:
+    money-inventory-deposit:
+      title: money-inventory-deposit
+      type: object
+      enum:
+          - 50
+          - 100
+          - 200
+          - 500
+          - 1000
+          - 5000
+          - 10000
+          - 20000
+          - 50000
+          - 100000
+      description: "only coins in enum will be deposited in cash register"
+      example: {
+        "500": 10,
+        "1000": 8,
+        "2000": 10,
+      }
+    transaction-payment:
+      title: transaction-payment
+      required:
+        - amount
+        - coins
+      type: object
+      properties:
+        amount:
+          type: integer
+          example: 24000
+          description: "amount to pay"
+        coins:
+          type: object
+          enum:
+            - 50
+            - 100
+            - 200
+            - 500
+            - 1000
+            - 5000
+            - 10000
+            - 20000
+            - 50000
+            - 100000
+          example: { \"20000\": 1, \"10000\": 2 }
+          description: "coins with which the payment will be made. Only can be pay with enums value coins"
+    # response schemas
+    money-inventory-api-schema:
+      title: money-inventory-api-schema
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        coin:
+          type: integer
+          example: 50
+          description: "coin value"
+        quantity:
+          type: integer
+          description: "coin quantity in cash register"
+        total:
+          type: integer
+          description: "coin value total in cash register (coin * quantity)"
+    money-inventory-deposit-api-schema:
+      title: money-inventory-deposit-api-schema
+      type: object
+      description: "return if coins could be deposited in cash register, depending if coin value is valid"
+      example: { \"500\": \"ok\", \"1000\": \"ok\", \"2000\": \"not valid\" }
+    transactions-api-schema:
+      title: transactions-api-schema
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid4
+          example: "cfd96061-adb1-4219-8ce9-47d2ef2efa6e"
+        amount:
+          type: integer
+          example: 41000
+          description: "transaction amount"
+        type:
+          type: string
+          enum:
+            - deposit
+            - payment
+            - vacate
+            - retirement
+          description: "transaction type"
+        coins:
+          type: object
+          nullable: true
+          description: "transaction coins"
+    transactions-status-api-schema:
+      title: transactions-status-api-schema
+      type: object
+      properties:
+        amount:
+          type: integer
+          example: 41000
+          description: "amount in cash register untill certain datetime"
+    transaction-payment-api-schema:
+      title: transaction-payment-api-schema
+      type: object
+      properties:
+        change_money:
+          type: object
+          properties:
+            total:
+              type: integer
+              example: 6000
+              description: "total money to change"
+            coins:
+              type: object
+              example: { \"5000\": 1, \"1000\": 1 }
+              description: "coins that will be change for payment"
+    # api responses
+    api_response:
+      title: api-response
+      required:
+        - result
+        - status
+      type: object
+      properties:
+        result:
+          type: object
+          description: "Object according to the requested resource"
+        status:
+          type: integer
+          description: HTTP code status
+    api_error:
+      title: api-error-response
+      required:
+        - message
+        - code
+      type: object
+      properties:
+        message:
+          type: string
+          description: "Message that describes the error"
+        code:
+          type: integer
+          description: "Code of error"
+    list_reponse:
+      title: list-response
+      required:
+        - items
+        - total
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+          description: "response elements according to the resource"
+        total:
+          type: integer
+          description: "total of items saved"
+    api_list_reponse:
+      title: api-list-response
+      required:
+        - result
+        - status
+      type: object
+      properties:
+        result:
+          $ref: "#/components/schemas/list_reponse"
+        status:
+          type: integer
+          description: "HTTP code status"
+  responses:
+    response:
+      $ref: "#/components/schemas/api_response"
+    list_response:
+      $ref: "#/components/schemas/api_list_reponse"
+    error:
+      $ref: "#/components/schemas/api_error"
+    404_not_found:
+      $ref: "#/components/schemas/api_error"

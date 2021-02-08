@@ -3,6 +3,7 @@ import morgan from "morgan";
 import cors from "cors";
 import Logger from "../external_interfaces/logger";
 import errorHandler from "./middlewares/error_handler";
+import { swaggerUi, swaggerDocument } from "../external_interfaces/swagger_ui";
 import { loggingRequests } from "./middlewares/logging_requests";
 import { CheckLimitOffsetRequests } from "./middlewares/check_limit_offset_requests";
 import { routes as appRoutes } from "./routes/index";
@@ -11,6 +12,7 @@ import { routes as appRoutes } from "./routes/index";
 const logger = Logger(__filename);
 
 const HTTP_PORT = process.env.HTTP_PORT || 3000;
+const OPENAPI_DOCS = process.env.OPENAPI_DOCS || './docs';
 
 
 export class Server {
@@ -28,6 +30,7 @@ export class Server {
         this.app.use(morgan("common"));
         this.app.use(json());
         this.app.use(cors());
+        this.app.use(OPENAPI_DOCS, swaggerUi.serve, swaggerUi.setup(swaggerDocument));
     }
 
     routes() {

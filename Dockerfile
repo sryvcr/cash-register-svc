@@ -17,6 +17,7 @@ RUN tsc --build tsconfig.json
 # step 3 deployment
 FROM base as deploy
 WORKDIR /usr/app
+COPY ./oas3.yaml .
 COPY --from=build /dependencies .
 COPY --from=build /build/dist .
 EXPOSE 6500
