@@ -12,9 +12,15 @@ Via terminal:
    `$ cd cash-register-svc/`  
    and run docker-compose  
    `$ docker-compose up -d`
-1. Get execution permission to following file  
+3. Get execution permission to following file  
    `chmod +x ./docs/database/dumps/restore_db_to_container.sh`
-1. Enter into db dumps directory  
+4. Enter into db dumps directory  
    `cd ./docs/database/dumps/`
-1. Execute file *restore_db_to_container* to restore initial sql dump into *cash-register-db* container  
+5. Execute file *restore_db_to_container* to restore initial sql dump into *cash-register-db* container  
    `./restore_db_to_container.sh`
+
+
+## API docs:
+
+- In directory *./docs/postman* you will be find the postman collection to use and to consume the API
+- When you run the project, you will be enter into `http://localhost:6500/oas-docs/` to show Swagger API documentation
